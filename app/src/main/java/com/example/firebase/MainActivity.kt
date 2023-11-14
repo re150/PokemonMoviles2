@@ -17,12 +17,10 @@ class MainActivity : AppCompatActivity() {
         recyclerbtn.setOnClickListener {
             var i = Intent(this,UserlistActivity::class.java)
             startActivity(i)
-            finish()
         }
         addpokemo.setOnClickListener {
             var i = Intent(this,AddPokemon::class.java)
             startActivity(i)
-            finish()
         }
     }
 }

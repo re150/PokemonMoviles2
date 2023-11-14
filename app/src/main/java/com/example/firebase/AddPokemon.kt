@@ -50,7 +50,6 @@ class AddPokemon : AppCompatActivity() {
                     Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_SHORT).show()
                     var i = Intent(this,MainActivity::class.java)
                     startActivity(i)
-                    finish()
                     etFirstName.text.clear()
                     etLastName.text.clear()
                     etAge.text.clear()
