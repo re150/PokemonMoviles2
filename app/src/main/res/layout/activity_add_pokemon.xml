@@ -7,30 +7,57 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".AddPokemon">
+    tools:context=".AddPokemon"
+    android:background="@drawable/red_gradient"
+    >
+
+    <ImageView
+        android:layout_marginTop="20dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/pokeball"
+        />
+
     <EditText
         android:id="@+id/etFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name"/>
+        android:hint="Pokémon"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"
+        />
 
     <EditText
         android:id="@+id/etLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last Name"/>
+        android:hint="Número en pokedex"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"
+        />
 
     <EditText
         android:id="@+id/etAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Age"/>
+        android:hint="Tipos"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"
+        />
 
     <EditText
         android:id="@+id/etImageUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Image URL"/>
+        android:hint="URL de imagen"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"
+        />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -39,7 +66,7 @@
             android:id="@+id/btnAddUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add User"
+            android:text="Agregar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
