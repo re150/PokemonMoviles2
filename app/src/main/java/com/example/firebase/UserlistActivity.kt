@@ -70,13 +70,18 @@ class UserlistActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        // Crear un intent para abrir la actividad cuando se toque la notificación
+        // Create an intent to open the activity when the notification is tapped
         val intent = Intent(this, UserlistActivity::class.java)
+        val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        } else {
+            PendingIntent.FLAG_UPDATE_CURRENT
+        }
         val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT
+            this, 0, intent, flags
         )
 
-        // Construir la notificación
+        // Build the notification
         val notificationBuilder = NotificationCompat.Builder(this, "default_channel_id")
             .setSmallIcon(R.drawable.icon_mesaje)
             .setContentTitle(title)
@@ -84,20 +89,14 @@ class UserlistActivity : AppCompatActivity() {
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
 
-        // Obtener el servicio de notificaciones y mostrar la notificación
+        // Get the notification service and display the notification
         val notificationManagerCompat = NotificationManagerCompat.from(this)
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.POST_NOTIFICATIONS
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            // Request the necessary permissions here if needed
             return
         }
         notificationManagerCompat.notify(1, notificationBuilder.build())
